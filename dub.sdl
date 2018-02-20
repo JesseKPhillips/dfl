@@ -1,0 +1,6 @@
+name "dfl"
+targetType "library"
+description "DFL is a Win32 windowing library for the D programming language."
+authors "Christopher E. Miller"
+license "LGPL"
+
