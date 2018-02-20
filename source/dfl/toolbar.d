@@ -197,7 +197,7 @@ class ToolBarButton
 	final @property void visible(bool byes) // setter
 	{
 		if(byes)
-			_state &= ~TBSTATE_HIDDEN;
+			_state &= ~cast(int)TBSTATE_HIDDEN;
 		else
 			_state |= TBSTATE_HIDDEN;
 		
@@ -220,7 +220,7 @@ class ToolBarButton
 		if(byes)
 			_state |= TBSTATE_ENABLED;
 		else
-			_state &= ~TBSTATE_ENABLED;
+			_state &= ~cast(int)TBSTATE_ENABLED;
 		
 		if(tbar && tbar.created)
 			tbar.prevwproc(TB_SETSTATE, _id, MAKELPARAM(_state, 0));
@@ -239,9 +239,9 @@ class ToolBarButton
 	final @property void pushed(bool byes) // setter
 	{
 		if(byes)
-			_state = (_state & ~TBSTATE_INDETERMINATE) | TBSTATE_CHECKED;
+			_state = (_state & ~cast(int)TBSTATE_INDETERMINATE) | TBSTATE_CHECKED;
 		else
-			_state &= ~TBSTATE_CHECKED;
+			_state &= ~cast(int)TBSTATE_CHECKED;
 		
 		if(tbar && tbar.created)
 			tbar.prevwproc(TB_SETSTATE, _id, MAKELPARAM(_state, 0));
@@ -260,9 +260,9 @@ class ToolBarButton
 	final @property void partialPush(bool byes) // setter
 	{
 		if(byes)
-			_state = (_state & ~TBSTATE_CHECKED) | TBSTATE_INDETERMINATE;
+			_state = (_state & ~cast(int)TBSTATE_CHECKED) | TBSTATE_INDETERMINATE;
 		else
-			_state &= ~TBSTATE_INDETERMINATE;
+			_state &= ~cast(int)TBSTATE_INDETERMINATE;
 		
 		if(tbar && tbar.created)
 			tbar.prevwproc(TB_SETSTATE, _id, MAKELPARAM(_state, 0));
